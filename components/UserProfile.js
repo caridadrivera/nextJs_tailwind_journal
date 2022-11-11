@@ -46,7 +46,7 @@ export default function UserProfile() {
             <>
               {Object.keys(posts).map((post, i) => {
                 return(
-                  <PostCard key={i} setEdit={setEdit} edit={edit} index={i}>
+                  <PostCard key={i} setEdit={setEdit} edit={edit}>
                     {posts[post]}
                   </PostCard>
                 )

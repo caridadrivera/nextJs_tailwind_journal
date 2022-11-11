@@ -52,8 +52,8 @@ export default function Login() {
     <div className='flex-1 bg-green text-xs sm:text-sm flex flex-col justify-center items-center gap-5 sm:gap-4 cursor-pointer'>
       <h1 className='font-bold text-xl sm:text-sm-4xl p-4'>{isUserLogginIn? 'Login' : 'Register'} </h1>
        {error && <div className='w-full max-w-[40ch] border-red-400 border text-center border-solid text-red-400 py-2'>{error}</div>}
-        <input value={emailAddress} onChange={(e)=> setEmailAddress(e.target.value)} type='text' placeholder='Email' className='text-slate-900 p-2 w-full max-w-[30ch] monserrat-text'/>
-        <input  value={password} onChange={(e)=> setPassword(e.target.value)}  type='text' placeholder='Password' className='text-font text-slate-900 p-2 w-full max-w-[30ch] monserrat-text'/>
+        <input type='text' value={emailAddress} onChange={(e)=> setEmailAddress(e.target.value)} placeholder='Email' className='text-slate-900 p-2 w-full max-w-[30ch] monserrat-text'/>
+        <input type='password' value={password} onChange={(e)=> setPassword(e.target.value)}  placeholder='Password' className='text-font text-slate-900 p-2 w-full max-w-[30ch] monserrat-text'/>
           <button  onClick={onLoginInfoSubmit} className='w-full max-w-[15ch] border border-green border-solid uppercase p-2 monserrat-text text-slate-300 '>SUBMIT</button>
           
           <h2 onClick={()=>setUserLoggingIn(!isUserLogginIn)}>  {!isUserLogginIn ? 'Login' : 'Register'}</h2>
