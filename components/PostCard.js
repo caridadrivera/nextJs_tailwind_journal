@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 export default function PostCard(props) {
 
@@ -10,7 +11,7 @@ export default function PostCard(props) {
            {children}     
         </div> 
         <div className='flex items-center text-yellow'>
-            <i onClick={()=>  setEdit(true)} className='fa-solid fa-pencil px-2 cursor-pointer'></i>
+            <i className='fa-solid fa-pencil px-2 cursor-pointer'> </i>
             <i className='fa-solid fa-trash-can px-2 cursor-pointer'></i>          
         </div>    
          

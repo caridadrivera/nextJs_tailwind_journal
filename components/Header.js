@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import Modal from './Modal'
+import NavBar from './NavBar';
 import {useAuth} from '../context/AuthContext'
 
 
@@ -17,7 +18,7 @@ export default function Header() {
     {openModal && <Modal setOpenModal={setOpenModal}/>}
 
        <div className='sticky top-0 w-full left-0 bg-inherit flex items-center justify-between p-4 border-b border-solid border-yellow-400'>
-          <h1 className='text-3xl sm:text-6xl'> Journal Entries </h1>
+          <NavBar currentUser={currentUser} className='text-3xl sm:text-6xl'></NavBar>
 
           {currentUser !== null &&  
           <i onClick={() => setOpenModal(true)} className='fa-solid fa-user text-xl sm:text-3xl'></i>}

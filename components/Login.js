@@ -1,6 +1,8 @@
 import { errorPrefix } from '@firebase/util';
 import React, {useState} from 'react'
 import {useAuth} from '../context/AuthContext'
+import {doc, setDoc} from 'firebase/firestore'
+import {db} from '../firebase'
 
 export default function Login() {
 
@@ -29,6 +31,12 @@ export default function Login() {
     else {
       try{
           await signup(emailAddress, password)
+          const userRef = doc(db, 'users', currentUser.uids)  
+     
+          await setDoc(userRef, {
+              email: emailAddress,
+              password: password
+           }, {merge:true})
         } 
       catch(error){
         if (error.code == "auth/email-already-in-use") {
@@ -41,7 +49,7 @@ export default function Login() {
             setErrorState("The password is too weak.");
           }
           else {
-            setErrorState(error.code.toString())
+            setErrorState(error.code)
           }
       }
     return
