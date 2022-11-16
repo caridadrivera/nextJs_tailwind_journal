@@ -5,9 +5,9 @@ import Header from './Header'
 export default function Layout(props) {
   const {children} = props;
   return (
-    <div className='flex flex-col min-h-screen relative bg-green-900'>
+    <div className='bg-white-300'>
         <Header/>
-        <main className='flex-1'>
+        <main className=''>
             {children}
         </main>
         <Footer/>

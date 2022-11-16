@@ -62,7 +62,7 @@ export default function Login() {
        {error && <div className='w-full max-w-[40ch] border-red-400 border text-center border-solid text-red-400 py-2'>{error}</div>}
         <input type='text' value={emailAddress} onChange={(e)=> setEmailAddress(e.target.value)} placeholder='Email' className='text-slate-900 p-2 w-full max-w-[30ch] monserrat-text'/>
         <input type='password' value={password} onChange={(e)=> setPassword(e.target.value)}  placeholder='Password' className='text-font text-slate-900 p-2 w-full max-w-[30ch] monserrat-text'/>
-          <button  onClick={onLoginInfoSubmit} className='w-full max-w-[15ch] border border-green border-solid uppercase p-2 monserrat-text text-slate-300 '>SUBMIT</button>
+          <button  onClick={onLoginInfoSubmit} className=' max-w-[15ch] border border-green border-solid uppercase p-2 monserrat-text text-slate-500 bg-yellow-200 '>SUBMIT</button>
           
           <h2 onClick={()=>setUserLoggingIn(!isUserLogginIn)}>  {!isUserLogginIn ? 'Login' : 'Register'}</h2>
       </div>
