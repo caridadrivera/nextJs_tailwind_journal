@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react'
 import {useAuth} from '../context/AuthContext'
-import {doc, setDoc, setIndexConfiguration} from 'firebase/firestore'
-import {db} from '../firebase'
 import fetchUserPosts from '../fetchinghooks/fetchPosts'
 
 
@@ -9,32 +7,31 @@ export default function addpost() {
 
     const { userInfo, currentUser} = useAuth()
     const [post, setPost] = useState('')
-  
-  
     const {posts, loading, error, setPosts} = fetchUserPosts()
   
   
 
       
-  async function handleAddPost(){
-    if(!post){ return }
+    async function handleAddPost(){
+      if(!post){ return }
+      
+      const newPostKey = Object.keys(posts).length === 0 ? 1 : Math.max(...Object.keys(posts)) + 1
+      setPosts({...posts, [newPostKey]: post, comment: '', mirror: 0})
+      setPost('')
+
+      const userRef = doc(db, 'users', currentUser.uid)  
+      await setDoc(userRef, {
+        'posts':  {
+          [newPostKey]: newPostKey,
+          post: post,
+          comment: '', 
+          mirror: 0
+      } 
+      }, {merge:true})
+
     
-    const newPostKey = Object.keys(posts).length === 0 ? 1 : Math.max(...Object.keys(posts)) + 1
-    setPosts({...posts, [newPostKey]: post})
-    setPost('')
 
-    const userRef = doc(db, 'users', currentUser.uid)  
-    console.log(userRef, 'user reference')
-
-    await setDoc(userRef, {
-      'posts': {
-        [newPostKey]: post
-      }
-    }, {merge:true})
-
-  
-
-}
+  }
 
 
 

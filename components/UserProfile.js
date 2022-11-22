@@ -19,8 +19,8 @@ export default function UserProfile() {
            </div>)}
 
           {(userInfo && !loading ) && 
-          (
-          <>
+          (   
+            <>
               {Object.keys(posts).map((post, i) => {
                 return(
                   <PostCard key={i} >
@@ -28,8 +28,7 @@ export default function UserProfile() {
                   </PostCard>
                 )
               })}
-
-            </>   
+          </>   
           )}
    </div>
   )

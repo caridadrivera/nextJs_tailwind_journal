@@ -31,12 +31,6 @@ export default function Login() {
     else {
       try{
           await signup(emailAddress, password)
-          const userRef = doc(db, 'users', currentUser.uids)  
-     
-          await setDoc(userRef, {
-              email: emailAddress,
-              password: password
-           }, {merge:true})
         } 
       catch(error){
         if (error.code == "auth/email-already-in-use") {

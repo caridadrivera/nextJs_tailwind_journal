@@ -1,12 +1,15 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import {auth, db} from '../firebase'
+import {doc, setDoc, setIndexConfiguration} from 'firebase/firestore'
+
+
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, AuthError } from "firebase/auth"
 
 const AuthContext = React.createContext()
 
 export function useAuth(){
     return useContext(AuthContext)
-};
+}
 
 
 export function AuthProvider({children}){
@@ -16,7 +19,16 @@ export function AuthProvider({children}){
 
 
     function signup(email, password){
-       return  createUserWithEmailAndPassword(auth, email, password)     
+        createUserWithEmailAndPassword(auth, email, password) 
+        .then((result)=>{
+            console.log(result.user.uid, 'im resulting bc the other was a promise')
+            setDoc(doc(db, 'users', result.user.uid),
+            {email:email, password:password} , {merge:true})
+        })
+        .catch((error)=> {
+            console.log(error, 'oops')
+        })
+        
     }
 
     function login(email, password){

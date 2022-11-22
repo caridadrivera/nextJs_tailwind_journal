@@ -8,8 +8,6 @@ export default function Header() {
   const [openModal, setOpenModal] = useState(false);  
   const {currentUser} = useAuth();
 
-  console.log(currentUser, 'is there a current user')
-
   //if the state changes to true, return modal and update the state to true
 
   return (
