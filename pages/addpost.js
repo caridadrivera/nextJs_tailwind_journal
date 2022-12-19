@@ -37,13 +37,12 @@ export default function addpost() {
 
   return (
     <>
-        {(currentUser !== null ) && (
+      {(currentUser !== null ) && (
         <div className='flex flex-col w-100'>
          <textarea className=' flex flex-wrap box-content h-32 p-10 border-4 sm:text-lg text-slate-900 ' type='text' placeholder='Add post' value={post} onChange={(e)=> setPost(e.target.value)}  />
            <button onClick={handleAddPost}  className='bg-yellow-300 text-slate-900 py-3 monserrat-text uppercase'> Add</button>
         </div>
-        )
-       }
+        )}
     </>
 
   )
