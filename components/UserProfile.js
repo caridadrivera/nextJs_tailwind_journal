@@ -18,16 +18,16 @@ export default function UserProfile() {
             <i className="fa-solid fa-spinner animate-spin text-6xl "></i>
            </div>)}
 
-          {(userInfo && !loading ) && 
+        {(userInfo && !loading ) && 
           (   
             <>
-              {Object.keys(posts).map((post, i) => {
+              {/* {Object.keys(posts).map((post, i) => {
                 return(
                   <PostCard key={i} >
                     {posts[post]}
                   </PostCard>
                 )
-              })}
+              })} */}
           </>   
           )}
    </div>

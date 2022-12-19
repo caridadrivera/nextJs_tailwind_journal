@@ -13,7 +13,7 @@ export default function fetchPosts() {
     useEffect(()=> { 
         async function fetchData(){
         try{
-            const docReference = doc(db, 'users', currentUser.uid)
+            const docReference = doc(db, 'posts', currentUser.uid)
             const documentSnap = await getDoc(docReference)
             if(documentSnap.exists()){
                 setPosts(documentSnap.data().posts)
