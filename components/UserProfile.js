@@ -5,8 +5,7 @@ import PostCard from './PostCard';
 import fetchUserPosts from '../fetchinghooks/fetchPosts'
 
 export default function UserProfile() {
-
-
+  
   const { userInfo, currentUser} = useAuth()
   const {posts, loading} = fetchUserPosts()
 
@@ -28,7 +27,7 @@ export default function UserProfile() {
                   </PostCard>
                 )
               })} */}
-          </>   
+           </>   
           )}
    </div>
   )

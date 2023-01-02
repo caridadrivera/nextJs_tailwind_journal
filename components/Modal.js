@@ -13,7 +13,7 @@ export default function Modal(props) {
       },[])
     
     
-      if(!_document){return null}
+    if(!_document){return null}
     
 
  
@@ -21,8 +21,8 @@ export default function Modal(props) {
   return ReactDom.createPortal  (
     <div className='fixed inset-0 bg-white text-slate-900 flex flex-col cursor-pointer'>
         <div className='flex items-center justify-between border-b border-solid border-slate-900 p-4'>
-            <h1 className='monserrat-text'>Menu</h1>   
-            <i onClick={()=> setOpenModal(false)} className='fa-solid fa-xmark'></i>      
+         <h1 className='monserrat-text'>Menu</h1>   
+         <i onClick={()=> setOpenModal(false)} className='fa-solid fa-xmark'></i>      
         </div>
 
         <div className='p-4 flex flex-col gap-3 '>

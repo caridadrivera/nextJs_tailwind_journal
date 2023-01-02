@@ -7,6 +7,7 @@ export default function addpost() {
 
     const { userInfo, currentUser} = useAuth()
     const [post, setPost] = useState('')
+    
     const {posts, loading, error, setPosts} = fetchUserPosts()
   
   

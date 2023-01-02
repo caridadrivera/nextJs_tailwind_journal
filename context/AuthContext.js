@@ -27,7 +27,7 @@ export function AuthProvider({children}){
         })
         .catch((error)=> {
             console.log(error, 'oops')
-        })
+        })    
         
     }
 
